@@ -13,19 +13,25 @@ platforms:
   # - name: fedora-22 # waiting for DNF support
 
 suites:
-  - name: default
+<% %w(11 12).each do |version| %>
+  - name: default_chef<%= version %>
+    provisioner:
+      require_chef_omnibus: <%= version %>
     run_list:
       - recipe[test::yum_utils]
       - recipe[yum-docker]
       - recipe[test::install_docker]
 
-  - name: testing
+  - name: testing_chef<%= version %>
+    provisioner:
+      require_chef_omnibus: <%= version %>
     run_list:
       - recipe[test::yum_utils]
       - recipe[yum-docker]
       - recipe[test::install_docker]
     excludes:
       - centos-6.6 # repo does not exist
+      - centos-6
     attributes:
       yum-docker:
         repos:
@@ -36,7 +42,9 @@ suites:
           docker-experimental:
             managed: false
 
-  - name: experimental
+  - name: experimental_chef<%= version %>
+    provisioner:
+      require_chef_omnibus: <%= version %>
     run_list:
       - recipe[test::yum_utils]
       - recipe[yum-docker]
@@ -53,3 +61,4 @@ suites:
             managed: false
           docker-experimental:
             managed: true
+<% end %>

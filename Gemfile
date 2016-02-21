@@ -15,6 +15,8 @@ gem 'berkshelf'
 gem 'serverspec'
 gem 'test-kitchen'
 gem 'kitchen-docker'
+gem 'kitchen-sync'
+gem 'kitchen-openstack'
 
 group :'local-integration' do
   gem 'kitchen-vagrant'

@@ -18,7 +18,7 @@ Requirements
 Attributes
 ----------
 #### yum-docker::default
-The default recipe is for installing & configuring the yum Docker repostories.
+The default recipe is for installing & configuring the yum Docker repositories.
 Any attribute supported by the [yum cookbook](https://github.com/chef-cookbooks/yum#parameters)
 is supported by this cookbook and can be used to override attributes in this
 cookbook.
