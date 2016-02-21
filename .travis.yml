@@ -30,4 +30,4 @@ script:
 env:
   global:
     - USE_SYSTEM_GECODE=1
-    - KITCHEN_YAML=.kitchen.docker.yml
+    - KITCHEN_LOCAL_YAML=.kitchen.docker.yml
